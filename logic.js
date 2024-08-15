@@ -11,13 +11,18 @@ const checkBoard = (arr) => {
         /*Column*/[1, 4, 7],
         /*Column*/[2, 5, 8]
     ];
+    
     winConditions.forEach(condition => {
         const [a, b, c] = condition;
-        if(arr[a]== arr[b] && arr[a] == arr[c]){
-            return console.log(arr[a]);
+        
+        console.log(`Comparing: arr[${a}] (${arr[a]}), arr[${b}] (${arr[b]}), arr[${c}] (${arr[c]})`);
+
+        if(arr[a]&& arr[a]=== arr[b] && arr[a] === arr[c]){
+            return `Winner: ${arr[a]}`;
         }
     })
-    return console.log('No Win');
+
+    return 'No Winner';
 };
 
 const screenController = (function () {
@@ -25,7 +30,8 @@ const screenController = (function () {
     cells.forEach(cell => {
         cell.addEventListener("click", event => {
             updateScreen(cell);
-            checkBoard(Array.from(cells));
+            const board = Array.from(cells).map(cell => cell.textContent);
+            checkBoard(board);
         })
     });
 })();
