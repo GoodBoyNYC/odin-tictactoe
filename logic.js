@@ -41,21 +41,21 @@ const game = (function () {
     let turnCount = 0;
     const board = Array.from(cells).map(cell => cell.textContent);
     btnReset.addEventListener("click", event => {
-        turnCount=0;
+        turnCount = 0;
         cells.forEach(cell => {
             cell.innerHTML = '';
         })
     })
     cells.forEach(cell => {
         cell.addEventListener("click", event => {
-            if (turnCount!=9) {
+            if (turnCount != 9) {
                 updateScreen(cell, turnCount);
-                console.log(turnCount++);
+                turnCount++;
                 checkBoard(board);
-           }
-           else {
-            console.log("No winner");
-           }
+            }
+            else {
+                console.log("No winner");
+            }
         })
     });
 })();
