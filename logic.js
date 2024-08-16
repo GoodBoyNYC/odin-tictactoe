@@ -48,9 +48,9 @@ const game = (function () {
     })
     cells.forEach(cell => {
         cell.addEventListener("click", event => {
-            if (turnCount != 9) {
+            if (cell.textContent === '' && turnCount != 9) {
                 updateScreen(cell, turnCount);
-                turnCount++;
+                console.log(turnCount++);
                 checkBoard(board);
             }
             else {
